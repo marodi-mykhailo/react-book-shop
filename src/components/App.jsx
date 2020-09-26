@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Card, Container } from 'semantic-ui-react';
 import axios from 'axios';
 
-import BookCard from '../containers/BookCard';
+import BookCard from '../components/BookCard';
 import Filter from '../containers/Filter';
 import Menu from '../containers/Menu';
 
@@ -15,7 +15,8 @@ class App extends Component {
   }
 
   render() {
-    const { books, isReady } = this.props;
+    const { books, isReady, addToCart } = this.props;
+
     return (
       <Container>
         <Menu />
@@ -23,7 +24,7 @@ class App extends Component {
         <Card.Group itemsPerRow={4}>
           {!isReady
             ? 'Загрузка...'
-            : books.map((book, i) => <BookCard key={i} {...book} />)}
+            : books.map((book, i) => <BookCard key={i} {...book} addToCart={addToCart} />)}
         </Card.Group>
       </Container>
     );

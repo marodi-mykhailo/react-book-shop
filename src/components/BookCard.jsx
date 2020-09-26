@@ -20,7 +20,8 @@ const BookCard = book => {
           {price}
         </a>
       </Card.Content>
-      <Button onClick={addToCart.bind(this, book)}>
+      <Button onClick={() => {
+          addToCart(book)}}>
         Добавить в корзину {addedCount > 0 && `(${addedCount})`}
       </Button>
     </Card>
@@ -28,3 +29,7 @@ const BookCard = book => {
 };
 
 export default BookCard;
+
+
+//додєлати додаваніє в корзіну
+
